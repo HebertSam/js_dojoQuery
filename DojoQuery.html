@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="somebutton">click me!!</button>
+    <h1 id="someotherbutton">Hover over me</h1>
+    
+</body>
+<script>
+        function Dojo(elementID){
+            console.log(elementID);
+            let element = document.getElementById(elementID);
+            console.log(element);
+    
+            this.click = function(arg){
+                element.addEventListener("click", arg);
+            }
+            this.hover = function(arg){
+                element.addEventListener("mouseover", arg);
+                element.addEventListener("mouseout", arg);
+            } 
+        }
+        function $Dojo(elementID){
+            return new Dojo(elementID);
+        }
+    
+        $Dojo("somebutton").click(function() { console.log("The button was clicked!") });
+        $Dojo("someotherbutton").hover(function() { console.log("The button was hovered on!") });
+    
+</script>
+</html>
